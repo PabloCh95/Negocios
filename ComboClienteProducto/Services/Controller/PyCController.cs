@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLogic;
+using Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,30 +12,21 @@ namespace Services.Controller
     public class PyCController : ApiController
     {
         // GET: api/PyC
-        public IEnumerable<string> Get()
+        public IEnumerable<Product> GetP()
         {
-            return new string[] { "value1", "value2" };
+            return Manager.acquireProduct();
         }
 
         // GET: api/PyC/5
-        public string Get(int id)
+        public IEnumerable<Client> GetCli()
         {
-            return "value";
+            return Manager.acquireClient();
         }
 
-        // POST: api/PyC
-        public void Post([FromBody]string value)
+        public IEnumerable<Combos> GetComb()
         {
+            return Manager.acquireCombo();
         }
 
-        // PUT: api/PyC/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/PyC/5
-        public void Delete(int id)
-        {
-        }
     }
 }

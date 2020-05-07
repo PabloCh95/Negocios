@@ -51,5 +51,30 @@ namespace DataAccess
             Connection.Close();
             return Products;
         }
+
+        public static List<Combos> ObtainCombos()
+        {
+            SqlConnection Connection = Connecting.Connect();
+            List<Combos> Combo = new List<Combos>();
+            SqlCommand Command = new SqlCommand("selectCombos", Connection);
+            Command.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataReader DataReader = Command.ExecuteReader();
+
+            while (DataReader.Read())
+            {
+                Combos newCombo = new Combos();
+                newCombo.IdCliente = DataReader.GetInt32(0);
+                newCombo.NombreCli = DataReader.GetString(1);
+                newCombo.ApellidoCli = DataReader.GetString(2);
+                newCombo.IdProducto = DataReader.GetInt32(3);
+                newCombo.NombreP = DataReader.GetString(4);
+                newCombo.PrecioP = DataReader.GetInt32(5);
+                newCombo.CantidadP = DataReader.GetInt32(6);
+
+                Combo.Add(newCombo);
+            }
+            Connection.Close();
+            return Combo;
+        }
     }
 }

@@ -35,8 +35,21 @@ namespace BusinessLogic
                 MessageBox.Show("Hubo un error al abrir la Base de Datos de PRODUCTOS.\n" + e.Message);
                 List<Product> vacio = new List<Product>();
                 return vacio;
+            }   
+        }
+        public static List<Combos> acquireCombo()
+        {
+            try
+            {
+                return Functions.ObtainCombos();
             }
-            
+            catch (Exception e)
+            {
+                MessageBox.Show("Hubo un error al abrir la Base de Datos de COMBOS.\n" + e.Message);
+                List<Combos> vacio = new List<Combos>();
+                return vacio;
+            }
+
         }
     }
 }
