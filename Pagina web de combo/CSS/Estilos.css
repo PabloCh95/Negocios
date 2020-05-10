@@ -1,0 +1,18 @@
+body {
+background:url(../Fondo/fondo.jpeg);
+margin: 0;
+
+
+font-family: "Roboto",sans-serif;
+}
+
+.row{
+  margin-bottom: 10px; /* ya sabes es para el espacio */
+}
+
+.main-content{
+  margin-left: auto;/* Con esto centras el contenido en el medio no importa el dispositivo*/
+  margin-right: auto;/* Con esto centras el contenido en el medio no importa el dispositivo*/
+  width: 80%; /* Trata de usar porcentajes cuando trabajes con responsibe*/
+
+}
